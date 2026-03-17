@@ -1,0 +1,2040 @@
+{
+  "target": {
+    "clock": {
+      "vp_component": "vp.clock_engine_module",
+      "frequency": 10000000,
+      "factor": 1,
+      "ports": [
+        "out"
+      ]
+    },
+    "chip": {
+      "soc": {
+        "rom": {
+          "init": true,
+          "size": 65536,
+          "stim_file": "/home/omkar/Desktop/UNIBO/gvsoc/install/generators/pulp/snitch/bootrom_spatz.bin",
+          "power_trigger": false,
+          "width_bits": -1,
+          "align": 0,
+          "latency": 0,
+          "memcheck_id": -1,
+          "memcheck_base": 0,
+          "memcheck_virtual_base": 0,
+          "memcheck_expansion_factor": 5,
+          "vp_component": "gen_memory_memory_cpp_149327240",
+          "ports": [
+            "input"
+          ]
+        },
+        "narrow_axi": {
+          "mappings": {
+            "wide_axi": {
+              "base": 2147483648,
+              "size": 2147483648,
+              "remove_offset": 0,
+              "add_offset": 0,
+              "latency": 0
+            },
+            "rom": {
+              "base": 4096,
+              "size": 65536,
+              "remove_offset": 4096,
+              "add_offset": 0,
+              "latency": 0
+            },
+            "cluster_0": {
+              "base": 1048576,
+              "size": 262144,
+              "remove_offset": 0,
+              "add_offset": 0,
+              "latency": 0
+            }
+          },
+          "latency": 0,
+          "bandwidth": 8,
+          "shared_rw_bandwidth": false,
+          "max_input_pending_size": 0,
+          "nb_input_port": 1,
+          "vp_component": "gen_interco_router_router_common_cpp_59666758",
+          "ports": [
+            "wide_axi",
+            "rom",
+            "input",
+            "cluster_0"
+          ]
+        },
+        "wide_axi": {
+          "mappings": {
+            "soc": {
+              "base": 2147483648,
+              "size": 2147483648,
+              "remove_offset": 2147483648,
+              "add_offset": 0,
+              "latency": 0
+            },
+            "rom": {
+              "base": 4096,
+              "size": 65536,
+              "remove_offset": 4096,
+              "add_offset": 0,
+              "latency": 0
+            }
+          },
+          "latency": 0,
+          "bandwidth": 64,
+          "shared_rw_bandwidth": false,
+          "max_input_pending_size": 0,
+          "nb_input_port": 1,
+          "vp_component": "gen_interco_router_router_common_cpp_59666758",
+          "ports": [
+            "soc",
+            "input",
+            "rom"
+          ]
+        },
+        "cluster_0": {
+          "wide_axi": {
+            "mappings": {
+              "cluster_0": {
+                "base": 0,
+                "size": 0,
+                "remove_offset": 0,
+                "add_offset": 0,
+                "latency": 0
+              },
+              "tcdm": {
+                "base": 1048576,
+                "size": 131072,
+                "remove_offset": 1048576,
+                "add_offset": 0,
+                "latency": 0
+              },
+              "zero_mem": {
+                "base": 1245184,
+                "size": 65536,
+                "remove_offset": 1245184,
+                "add_offset": 0,
+                "latency": 0
+              }
+            },
+            "latency": 0,
+            "bandwidth": 64,
+            "shared_rw_bandwidth": false,
+            "max_input_pending_size": 0,
+            "nb_input_port": 1,
+            "vp_component": "gen_interco_router_router_common_cpp_59666758",
+            "ports": [
+              "input",
+              "cluster_0",
+              "tcdm",
+              "zero_mem"
+            ]
+          },
+          "narrow_axi": {
+            "mappings": {
+              "cluster_0": {
+                "base": 0,
+                "size": 0,
+                "remove_offset": 0,
+                "add_offset": 0,
+                "latency": 0
+              },
+              "pe0_ico": {
+                "base": 1048576,
+                "size": 131072,
+                "remove_offset": 0,
+                "add_offset": 0,
+                "latency": 0
+              },
+              "cluster_registers": {
+                "base": 1179648,
+                "size": 65536,
+                "remove_offset": 1179648,
+                "add_offset": 0,
+                "latency": 0
+              },
+              "zero_mem": {
+                "base": 1245184,
+                "size": 65536,
+                "remove_offset": 0,
+                "add_offset": 0,
+                "latency": 0
+              }
+            },
+            "latency": 0,
+            "bandwidth": 8,
+            "shared_rw_bandwidth": false,
+            "max_input_pending_size": 0,
+            "nb_input_port": 1,
+            "vp_component": "gen_interco_router_router_common_cpp_59666758",
+            "ports": [
+              "input",
+              "cluster_0",
+              "pe0_ico",
+              "cluster_registers",
+              "zero_mem"
+            ]
+          },
+          "tcdm_dma_ico": {
+            "mappings": {},
+            "latency": 0,
+            "bandwidth": 64,
+            "shared_rw_bandwidth": false,
+            "max_input_pending_size": 0,
+            "nb_input_port": 1,
+            "vp_component": "gen_interco_router_router_common_cpp_59666758"
+          },
+          "tcdm": {
+            "bank_0": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_1": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_2": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_3": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_4": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_5": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_6": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_7": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_8": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_9": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_10": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_11": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_12": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_13": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_14": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_15": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_16": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_17": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_18": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_19": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_20": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_21": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_22": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_23": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_24": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_25": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_26": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_27": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_28": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_29": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_30": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "bank_31": {
+              "init": true,
+              "size": 4096.0,
+              "stim_file": null,
+              "power_trigger": false,
+              "width_bits": 3,
+              "align": 0,
+              "latency": 0,
+              "memcheck_id": -1,
+              "memcheck_base": 0,
+              "memcheck_virtual_base": 0,
+              "memcheck_expansion_factor": 5,
+              "vp_component": "gen_memory_memory_cpp_105025602",
+              "ports": [
+                "input"
+              ]
+            },
+            "interleaver": {
+              "vp_component": "pulp.cluster.l1_interleaver_impl",
+              "nb_slaves": 32,
+              "nb_masters": 10,
+              "stage_bits": 0,
+              "interleaving_bits": 3,
+              "offset_mask": 131071,
+              "ports": [
+                "out_0",
+                "out_1",
+                "out_2",
+                "out_3",
+                "out_4",
+                "out_5",
+                "out_6",
+                "out_7",
+                "out_8",
+                "out_9",
+                "out_10",
+                "out_11",
+                "out_12",
+                "out_13",
+                "out_14",
+                "out_15",
+                "out_16",
+                "out_17",
+                "out_18",
+                "out_19",
+                "out_20",
+                "out_21",
+                "out_22",
+                "out_23",
+                "out_24",
+                "out_25",
+                "out_26",
+                "out_27",
+                "out_28",
+                "out_29",
+                "out_30",
+                "out_31",
+                "in_0",
+                "in_1",
+                "in_2",
+                "in_3",
+                "in_4",
+                "in_5",
+                "in_6",
+                "in_7",
+                "in_8",
+                "in_9"
+              ]
+            },
+            "dma_interleaver": {
+              "nb_banks": 32,
+              "bank_width": 8,
+              "vp_component": "gen_pulp_snitch_snitch_cluster_dma_interleaver_cpp_145132772",
+              "ports": [
+                "out_0",
+                "out_1",
+                "out_2",
+                "out_3",
+                "out_4",
+                "out_5",
+                "out_6",
+                "out_7",
+                "out_8",
+                "out_9",
+                "out_10",
+                "out_11",
+                "out_12",
+                "out_13",
+                "out_14",
+                "out_15",
+                "out_16",
+                "out_17",
+                "out_18",
+                "out_19",
+                "out_20",
+                "out_21",
+                "out_22",
+                "out_23",
+                "out_24",
+                "out_25",
+                "out_26",
+                "out_27",
+                "out_28",
+                "out_29",
+                "out_30",
+                "out_31",
+                "input"
+              ]
+            },
+            "bindings": [
+              [
+                "interleaver->out_0",
+                "bank_0->input"
+              ],
+              [
+                "dma_interleaver->out_0",
+                "bank_0->input"
+              ],
+              [
+                "interleaver->out_1",
+                "bank_1->input"
+              ],
+              [
+                "dma_interleaver->out_1",
+                "bank_1->input"
+              ],
+              [
+                "interleaver->out_2",
+                "bank_2->input"
+              ],
+              [
+                "dma_interleaver->out_2",
+                "bank_2->input"
+              ],
+              [
+                "interleaver->out_3",
+                "bank_3->input"
+              ],
+              [
+                "dma_interleaver->out_3",
+                "bank_3->input"
+              ],
+              [
+                "interleaver->out_4",
+                "bank_4->input"
+              ],
+              [
+                "dma_interleaver->out_4",
+                "bank_4->input"
+              ],
+              [
+                "interleaver->out_5",
+                "bank_5->input"
+              ],
+              [
+                "dma_interleaver->out_5",
+                "bank_5->input"
+              ],
+              [
+                "interleaver->out_6",
+                "bank_6->input"
+              ],
+              [
+                "dma_interleaver->out_6",
+                "bank_6->input"
+              ],
+              [
+                "interleaver->out_7",
+                "bank_7->input"
+              ],
+              [
+                "dma_interleaver->out_7",
+                "bank_7->input"
+              ],
+              [
+                "interleaver->out_8",
+                "bank_8->input"
+              ],
+              [
+                "dma_interleaver->out_8",
+                "bank_8->input"
+              ],
+              [
+                "interleaver->out_9",
+                "bank_9->input"
+              ],
+              [
+                "dma_interleaver->out_9",
+                "bank_9->input"
+              ],
+              [
+                "interleaver->out_10",
+                "bank_10->input"
+              ],
+              [
+                "dma_interleaver->out_10",
+                "bank_10->input"
+              ],
+              [
+                "interleaver->out_11",
+                "bank_11->input"
+              ],
+              [
+                "dma_interleaver->out_11",
+                "bank_11->input"
+              ],
+              [
+                "interleaver->out_12",
+                "bank_12->input"
+              ],
+              [
+                "dma_interleaver->out_12",
+                "bank_12->input"
+              ],
+              [
+                "interleaver->out_13",
+                "bank_13->input"
+              ],
+              [
+                "dma_interleaver->out_13",
+                "bank_13->input"
+              ],
+              [
+                "interleaver->out_14",
+                "bank_14->input"
+              ],
+              [
+                "dma_interleaver->out_14",
+                "bank_14->input"
+              ],
+              [
+                "interleaver->out_15",
+                "bank_15->input"
+              ],
+              [
+                "dma_interleaver->out_15",
+                "bank_15->input"
+              ],
+              [
+                "interleaver->out_16",
+                "bank_16->input"
+              ],
+              [
+                "dma_interleaver->out_16",
+                "bank_16->input"
+              ],
+              [
+                "interleaver->out_17",
+                "bank_17->input"
+              ],
+              [
+                "dma_interleaver->out_17",
+                "bank_17->input"
+              ],
+              [
+                "interleaver->out_18",
+                "bank_18->input"
+              ],
+              [
+                "dma_interleaver->out_18",
+                "bank_18->input"
+              ],
+              [
+                "interleaver->out_19",
+                "bank_19->input"
+              ],
+              [
+                "dma_interleaver->out_19",
+                "bank_19->input"
+              ],
+              [
+                "interleaver->out_20",
+                "bank_20->input"
+              ],
+              [
+                "dma_interleaver->out_20",
+                "bank_20->input"
+              ],
+              [
+                "interleaver->out_21",
+                "bank_21->input"
+              ],
+              [
+                "dma_interleaver->out_21",
+                "bank_21->input"
+              ],
+              [
+                "interleaver->out_22",
+                "bank_22->input"
+              ],
+              [
+                "dma_interleaver->out_22",
+                "bank_22->input"
+              ],
+              [
+                "interleaver->out_23",
+                "bank_23->input"
+              ],
+              [
+                "dma_interleaver->out_23",
+                "bank_23->input"
+              ],
+              [
+                "interleaver->out_24",
+                "bank_24->input"
+              ],
+              [
+                "dma_interleaver->out_24",
+                "bank_24->input"
+              ],
+              [
+                "interleaver->out_25",
+                "bank_25->input"
+              ],
+              [
+                "dma_interleaver->out_25",
+                "bank_25->input"
+              ],
+              [
+                "interleaver->out_26",
+                "bank_26->input"
+              ],
+              [
+                "dma_interleaver->out_26",
+                "bank_26->input"
+              ],
+              [
+                "interleaver->out_27",
+                "bank_27->input"
+              ],
+              [
+                "dma_interleaver->out_27",
+                "bank_27->input"
+              ],
+              [
+                "interleaver->out_28",
+                "bank_28->input"
+              ],
+              [
+                "dma_interleaver->out_28",
+                "bank_28->input"
+              ],
+              [
+                "interleaver->out_29",
+                "bank_29->input"
+              ],
+              [
+                "dma_interleaver->out_29",
+                "bank_29->input"
+              ],
+              [
+                "interleaver->out_30",
+                "bank_30->input"
+              ],
+              [
+                "dma_interleaver->out_30",
+                "bank_30->input"
+              ],
+              [
+                "interleaver->out_31",
+                "bank_31->input"
+              ],
+              [
+                "dma_interleaver->out_31",
+                "bank_31->input"
+              ],
+              [
+                "self->in_0",
+                "interleaver->in_0"
+              ],
+              [
+                "self->dma_input",
+                "dma_interleaver->input"
+              ],
+              [
+                "self->in_1",
+                "interleaver->in_1"
+              ],
+              [
+                "self->dma_input",
+                "dma_interleaver->input"
+              ],
+              [
+                "self->in_2",
+                "interleaver->in_2"
+              ],
+              [
+                "self->dma_input",
+                "dma_interleaver->input"
+              ],
+              [
+                "self->in_3",
+                "interleaver->in_3"
+              ],
+              [
+                "self->dma_input",
+                "dma_interleaver->input"
+              ],
+              [
+                "self->in_4",
+                "interleaver->in_4"
+              ],
+              [
+                "self->dma_input",
+                "dma_interleaver->input"
+              ],
+              [
+                "self->in_5",
+                "interleaver->in_5"
+              ],
+              [
+                "self->dma_input",
+                "dma_interleaver->input"
+              ],
+              [
+                "self->in_6",
+                "interleaver->in_6"
+              ],
+              [
+                "self->dma_input",
+                "dma_interleaver->input"
+              ],
+              [
+                "self->in_7",
+                "interleaver->in_7"
+              ],
+              [
+                "self->dma_input",
+                "dma_interleaver->input"
+              ],
+              [
+                "self->in_8",
+                "interleaver->in_8"
+              ],
+              [
+                "self->dma_input",
+                "dma_interleaver->input"
+              ],
+              [
+                "self->in_9",
+                "interleaver->in_9"
+              ],
+              [
+                "self->dma_input",
+                "dma_interleaver->input"
+              ]
+            ],
+            "components": [
+              "bank_0",
+              "bank_1",
+              "bank_2",
+              "bank_3",
+              "bank_4",
+              "bank_5",
+              "bank_6",
+              "bank_7",
+              "bank_8",
+              "bank_9",
+              "bank_10",
+              "bank_11",
+              "bank_12",
+              "bank_13",
+              "bank_14",
+              "bank_15",
+              "bank_16",
+              "bank_17",
+              "bank_18",
+              "bank_19",
+              "bank_20",
+              "bank_21",
+              "bank_22",
+              "bank_23",
+              "bank_24",
+              "bank_25",
+              "bank_26",
+              "bank_27",
+              "bank_28",
+              "bank_29",
+              "bank_30",
+              "bank_31",
+              "interleaver",
+              "dma_interleaver"
+            ],
+            "ports": [
+              "in_0",
+              "dma_input",
+              "in_1",
+              "in_2",
+              "in_3",
+              "in_4",
+              "in_5",
+              "in_6",
+              "in_7",
+              "in_8",
+              "in_9"
+            ]
+          },
+          "zero_mem": {
+            "size": 65536,
+            "vp_component": "gen_pulp_snitch_zero_mem_cpp_86736923",
+            "ports": [
+              "input"
+            ]
+          },
+          "icache": {
+            "l0_bank0": {
+              "vp_component": "cache.cache_impl",
+              "nb_sets_bits": 0,
+              "nb_ways_bits": 0,
+              "line_size_bits": 5,
+              "nb_ports": 1,
+              "refill_latency": 0,
+              "add_offset": 0,
+              "refill_shift": 0,
+              "enabled": true,
+              "ports": [
+                "input",
+                "refill",
+                "enable",
+                "flush",
+                "flush_ack"
+              ]
+            },
+            "l0_bank1": {
+              "vp_component": "cache.cache_impl",
+              "nb_sets_bits": 0,
+              "nb_ways_bits": 0,
+              "line_size_bits": 5,
+              "nb_ports": 1,
+              "refill_latency": 0,
+              "add_offset": 0,
+              "refill_shift": 0,
+              "enabled": true,
+              "ports": [
+                "input",
+                "refill",
+                "enable",
+                "flush",
+                "flush_ack"
+              ]
+            },
+            "l1_bank0": {
+              "vp_component": "cache.cache_impl",
+              "nb_sets_bits": 7,
+              "nb_ways_bits": 1,
+              "line_size_bits": 5,
+              "nb_ports": 1,
+              "refill_latency": 2,
+              "add_offset": 0,
+              "refill_shift": 0,
+              "enabled": true,
+              "ports": [
+                "refill",
+                "enable",
+                "flush",
+                "input",
+                "flush_ack"
+              ]
+            },
+            "interleaver": {
+              "vp_component": "interco.interleaver_impl",
+              "nb_slaves": 1,
+              "nb_masters": 0,
+              "interleaving_bits": 7,
+              "stage_bits": 0,
+              "remove_offset": 0,
+              "enable_shift": 0,
+              "offset_translation": true,
+              "ports": [
+                "input",
+                "out_0"
+              ]
+            },
+            "flush_ack": {
+              "nb_input": 3,
+              "vp_component": "gen_utils_common_cells_and_cpp_76259185",
+              "ports": [
+                "input_0",
+                "input_1",
+                "input_2",
+                "output"
+              ]
+            },
+            "nb_cores": 2,
+            "has_cc": 0,
+            "l1_line_size_bits": 7,
+            "bindings": [
+              [
+                "self->input_0",
+                "l0_bank0->input"
+              ],
+              [
+                "l0_bank0->refill",
+                "interleaver->input"
+              ],
+              [
+                "self->enable",
+                "l0_bank0->enable"
+              ],
+              [
+                "self->flush",
+                "l0_bank0->flush"
+              ],
+              [
+                "self->input_1",
+                "l0_bank1->input"
+              ],
+              [
+                "l0_bank1->refill",
+                "interleaver->input"
+              ],
+              [
+                "self->enable",
+                "l0_bank1->enable"
+              ],
+              [
+                "self->flush",
+                "l0_bank1->flush"
+              ],
+              [
+                "l1_bank0->refill",
+                "self->refill"
+              ],
+              [
+                "self->enable",
+                "l1_bank0->enable"
+              ],
+              [
+                "self->flush",
+                "l1_bank0->flush"
+              ],
+              [
+                "interleaver->out_0",
+                "l1_bank0->input"
+              ],
+              [
+                "l0_bank0->flush_ack",
+                "flush_ack->input_0"
+              ],
+              [
+                "l0_bank1->flush_ack",
+                "flush_ack->input_1"
+              ],
+              [
+                "l1_bank0->flush_ack",
+                "flush_ack->input_2"
+              ],
+              [
+                "flush_ack->output",
+                "self->flush_ack"
+              ]
+            ],
+            "components": [
+              "l0_bank0",
+              "l0_bank1",
+              "l1_bank0",
+              "interleaver",
+              "flush_ack"
+            ],
+            "ports": [
+              "input_0",
+              "enable",
+              "flush",
+              "input_1",
+              "refill",
+              "flush_ack"
+            ]
+          },
+          "pe0": {
+            "isa": "rv32imfdcav",
+            "misa": 266541,
+            "first_external_pcer": 0,
+            "riscv_dbg_unit": false,
+            "debug_binaries": [
+              "/home/omkar/Desktop/UNIBO/gvsoc/spatz/hw/system/spatz_cluster/sw/build/riscvTests/debug_binary_test-riscvTests-vmvm.debugInfo"
+            ],
+            "binaries": [
+              "/home/omkar/Desktop/UNIBO/gvsoc/spatz/hw/system/spatz_cluster/sw/build/riscvTests/test-riscvTests-vmvm",
+              "/home/omkar/Desktop/UNIBO/gvsoc/spatz/hw/system/spatz_cluster/sw/build/riscvTests/test-riscvTests-vmvm"
+            ],
+            "debug_handler": 0,
+            "power_models": {},
+            "cluster_id": 0,
+            "core_id": 0,
+            "fetch_enable": false,
+            "boot_addr": 4096,
+            "has_double": true,
+            "htif_fromhost": "0x80009c40",
+            "htif_tohost": "0x80009c00",
+            "vu": {
+              "nb_lanes": 4,
+              "lsu_width": 8,
+              "compute_width": 8,
+              "nb_ports": 4,
+              "nb_outstanding_reqs": 8
+            },
+            "regmap": {
+              "name": "ssr",
+              "spec": "/home/omkar/Desktop/UNIBO/gvsoc/install/generators/pulp/snitch/archi/ssr.md",
+              "header_prefix": "/home/omkar/Desktop/UNIBO/gvsoc/install/generators/pulp/snitch/archi/ssr",
+              "headers": [
+                "gvsoc",
+                "regfields"
+              ]
+            },
+            "vp_component": "gen_isa_snitch_rv32imfdcav_157831898_cpp_120963093",
+            "ports": [
+              "offload",
+              "offload_grant",
+              "fetchen",
+              "barrier_req",
+              "data",
+              "vlsu_0",
+              "vlsu_1",
+              "vlsu_2",
+              "vlsu_3",
+              "fetch",
+              "flush_cache_req",
+              "flush_cache_ack",
+              "ssr_dm0",
+              "ssr_dm1",
+              "ssr_dm2",
+              "barrier_ack",
+              "external_irq_19",
+              "msi",
+              "mti",
+              "mei"
+            ]
+          },
+          "pe0_ico": {
+            "mappings": {
+              "tcdm": {
+                "base": 1048576,
+                "size": 131072,
+                "remove_offset": 1048576,
+                "add_offset": 0,
+                "latency": 0
+              },
+              "narrow_axi": {
+                "base": 0,
+                "size": 0,
+                "remove_offset": 0,
+                "add_offset": 0,
+                "latency": 0
+              },
+              "cluster_registers": {
+                "base": 1179648,
+                "size": 65536,
+                "remove_offset": 1179648,
+                "add_offset": 0,
+                "latency": 0
+              }
+            },
+            "latency": 0,
+            "bandwidth": 8,
+            "shared_rw_bandwidth": false,
+            "max_input_pending_size": 0,
+            "nb_input_port": 1,
+            "vp_component": "gen_interco_router_router_common_cpp_59666758",
+            "ports": [
+              "input",
+              "tcdm",
+              "narrow_axi",
+              "cluster_registers"
+            ]
+          },
+          "pe1": {
+            "isa": "rv32imfdcav",
+            "misa": 266541,
+            "first_external_pcer": 0,
+            "riscv_dbg_unit": false,
+            "debug_binaries": [
+              "/home/omkar/Desktop/UNIBO/gvsoc/spatz/hw/system/spatz_cluster/sw/build/riscvTests/debug_binary_test-riscvTests-vmvm.debugInfo"
+            ],
+            "binaries": [
+              "/home/omkar/Desktop/UNIBO/gvsoc/spatz/hw/system/spatz_cluster/sw/build/riscvTests/test-riscvTests-vmvm",
+              "/home/omkar/Desktop/UNIBO/gvsoc/spatz/hw/system/spatz_cluster/sw/build/riscvTests/test-riscvTests-vmvm"
+            ],
+            "debug_handler": 0,
+            "power_models": {},
+            "cluster_id": 0,
+            "core_id": 1,
+            "fetch_enable": false,
+            "boot_addr": 4096,
+            "has_double": true,
+            "htif_fromhost": "0x80009c40",
+            "htif_tohost": "0x80009c00",
+            "vu": {
+              "nb_lanes": 4,
+              "lsu_width": 8,
+              "compute_width": 8,
+              "nb_ports": 4,
+              "nb_outstanding_reqs": 8
+            },
+            "regmap": {
+              "name": "ssr",
+              "spec": "/home/omkar/Desktop/UNIBO/gvsoc/install/generators/pulp/snitch/archi/ssr.md",
+              "header_prefix": "/home/omkar/Desktop/UNIBO/gvsoc/install/generators/pulp/snitch/archi/ssr",
+              "headers": [
+                "gvsoc",
+                "regfields"
+              ]
+            },
+            "vp_component": "gen_isa_snitch_rv32imfdcav_157831898_cpp_120963093",
+            "ports": [
+              "fetchen",
+              "barrier_req",
+              "data",
+              "vlsu_0",
+              "vlsu_1",
+              "vlsu_2",
+              "vlsu_3",
+              "fetch",
+              "flush_cache_req",
+              "flush_cache_ack",
+              "ssr_dm0",
+              "ssr_dm1",
+              "ssr_dm2",
+              "barrier_ack",
+              "external_irq_19",
+              "msi",
+              "mti",
+              "mei"
+            ]
+          },
+          "pe1_ico": {
+            "mappings": {
+              "tcdm": {
+                "base": 1048576,
+                "size": 131072,
+                "remove_offset": 1048576,
+                "add_offset": 0,
+                "latency": 0
+              },
+              "narrow_axi": {
+                "base": 0,
+                "size": 0,
+                "remove_offset": 0,
+                "add_offset": 0,
+                "latency": 0
+              },
+              "cluster_registers": {
+                "base": 1179648,
+                "size": 65536,
+                "remove_offset": 1179648,
+                "add_offset": 0,
+                "latency": 0
+              }
+            },
+            "latency": 0,
+            "bandwidth": 8,
+            "shared_rw_bandwidth": false,
+            "max_input_pending_size": 0,
+            "nb_input_port": 1,
+            "vp_component": "gen_interco_router_router_common_cpp_59666758",
+            "ports": [
+              "input",
+              "tcdm",
+              "narrow_axi",
+              "cluster_registers"
+            ]
+          },
+          "cluster_registers": {
+            "boot_addr": 2147483648,
+            "nb_cores": 2,
+            "vp_component": "gen_pulp_snitch_snitch_cluster_spatz_cluster_registers_cpp_136190959",
+            "ports": [
+              "barrier_req_0",
+              "barrier_req_1",
+              "input",
+              "barrier_ack",
+              "external_irq_0",
+              "external_irq_1",
+              "input_0",
+              "input_1"
+            ]
+          },
+          "idma": {
+            "transfer_queue_size": 8,
+            "burst_queue_size": 24,
+            "burst_size": 0,
+            "loc_base": 1048576,
+            "loc_size": 131072,
+            "tcdm_width": 4096,
+            "vp_component": "gen_pulp_idma_snitch_dma_cpp_128919885",
+            "ports": [
+              "offload",
+              "offload_grant",
+              "axi_read",
+              "axi_write",
+              "tcdm_read",
+              "tcdm_write"
+            ]
+          },
+          "bindings": [
+            [
+              "self->narrow_input",
+              "narrow_axi->input"
+            ],
+            [
+              "narrow_axi->cluster_0",
+              "self->narrow_soc"
+            ],
+            [
+              "narrow_axi->pe0_ico",
+              "pe0_ico->input"
+            ],
+            [
+              "self->wide_input",
+              "wide_axi->input"
+            ],
+            [
+              "wide_axi->cluster_0",
+              "self->wide_soc"
+            ],
+            [
+              "icache->refill",
+              "wide_axi->input"
+            ],
+            [
+              "wide_axi->tcdm",
+              "tcdm->dma_input"
+            ],
+            [
+              "pe0->offload",
+              "idma->offload"
+            ],
+            [
+              "idma->offload_grant",
+              "pe0->offload_grant"
+            ],
+            [
+              "self->fetchen",
+              "pe0->fetchen"
+            ],
+            [
+              "self->fetchen",
+              "pe1->fetchen"
+            ],
+            [
+              "pe0->barrier_req",
+              "cluster_registers->barrier_req_0"
+            ],
+            [
+              "pe1->barrier_req",
+              "cluster_registers->barrier_req_1"
+            ],
+            [
+              "pe0->data",
+              "pe0_ico->input"
+            ],
+            [
+              "pe0_ico->tcdm",
+              "tcdm->in_0"
+            ],
+            [
+              "pe0->vlsu_0",
+              "tcdm->in_1"
+            ],
+            [
+              "pe0->vlsu_1",
+              "tcdm->in_2"
+            ],
+            [
+              "pe0->vlsu_2",
+              "tcdm->in_3"
+            ],
+            [
+              "pe0->vlsu_3",
+              "tcdm->in_4"
+            ],
+            [
+              "pe0_ico->narrow_axi",
+              "narrow_axi->input"
+            ],
+            [
+              "pe0->fetch",
+              "icache->input_0"
+            ],
+            [
+              "pe0->flush_cache_req",
+              "icache->flush"
+            ],
+            [
+              "icache->flush_ack",
+              "pe0->flush_cache_ack"
+            ],
+            [
+              "pe1->data",
+              "pe1_ico->input"
+            ],
+            [
+              "pe1_ico->tcdm",
+              "tcdm->in_5"
+            ],
+            [
+              "pe1->vlsu_0",
+              "tcdm->in_6"
+            ],
+            [
+              "pe1->vlsu_1",
+              "tcdm->in_7"
+            ],
+            [
+              "pe1->vlsu_2",
+              "tcdm->in_8"
+            ],
+            [
+              "pe1->vlsu_3",
+              "tcdm->in_9"
+            ],
+            [
+              "pe1_ico->narrow_axi",
+              "narrow_axi->input"
+            ],
+            [
+              "pe1->fetch",
+              "icache->input_1"
+            ],
+            [
+              "pe1->flush_cache_req",
+              "icache->flush"
+            ],
+            [
+              "icache->flush_ack",
+              "pe1->flush_cache_ack"
+            ],
+            [
+              "pe0->ssr_dm0",
+              "pe0_ico->input"
+            ],
+            [
+              "pe0->ssr_dm1",
+              "pe0_ico->input"
+            ],
+            [
+              "pe0->ssr_dm2",
+              "pe0_ico->input"
+            ],
+            [
+              "pe1->ssr_dm0",
+              "pe1_ico->input"
+            ],
+            [
+              "pe1->ssr_dm1",
+              "pe1_ico->input"
+            ],
+            [
+              "pe1->ssr_dm2",
+              "pe1_ico->input"
+            ],
+            [
+              "narrow_axi->cluster_registers",
+              "cluster_registers->input"
+            ],
+            [
+              "cluster_registers->barrier_ack",
+              "pe0->barrier_ack"
+            ],
+            [
+              "cluster_registers->barrier_ack",
+              "pe1->barrier_ack"
+            ],
+            [
+              "cluster_registers->external_irq_0",
+              "pe0->external_irq_19"
+            ],
+            [
+              "self->msip_0",
+              "pe0->msi"
+            ],
+            [
+              "self->mtip_0",
+              "pe0->mti"
+            ],
+            [
+              "self->meip_0",
+              "pe0->mei"
+            ],
+            [
+              "cluster_registers->external_irq_1",
+              "pe1->external_irq_19"
+            ],
+            [
+              "self->msip_1",
+              "pe1->msi"
+            ],
+            [
+              "self->mtip_1",
+              "pe1->mti"
+            ],
+            [
+              "self->meip_1",
+              "pe1->mei"
+            ],
+            [
+              "pe0_ico->cluster_registers",
+              "cluster_registers->input_0"
+            ],
+            [
+              "pe1_ico->cluster_registers",
+              "cluster_registers->input_1"
+            ],
+            [
+              "idma->axi_read",
+              "wide_axi->input"
+            ],
+            [
+              "idma->axi_write",
+              "wide_axi->input"
+            ],
+            [
+              "idma->tcdm_read",
+              "tcdm->dma_input"
+            ],
+            [
+              "idma->tcdm_write",
+              "tcdm->dma_input"
+            ],
+            [
+              "wide_axi->zero_mem",
+              "zero_mem->input"
+            ],
+            [
+              "narrow_axi->zero_mem",
+              "wide_axi->input"
+            ]
+          ],
+          "components": [
+            "wide_axi",
+            "narrow_axi",
+            "tcdm_dma_ico",
+            "tcdm",
+            "zero_mem",
+            "icache",
+            "pe0",
+            "pe0_ico",
+            "pe1",
+            "pe1_ico",
+            "cluster_registers",
+            "idma"
+          ],
+          "ports": [
+            "narrow_input",
+            "narrow_soc",
+            "wide_input",
+            "wide_soc",
+            "fetchen",
+            "msip_0",
+            "mtip_0",
+            "meip_0",
+            "msip_1",
+            "mtip_1",
+            "meip_1"
+          ]
+        },
+        "loader": {
+          "vp_component": "utils.loader.loader",
+          "binary": [
+            "/home/omkar/Desktop/UNIBO/gvsoc/spatz/hw/system/spatz_cluster/sw/build/riscvTests/test-riscvTests-vmvm"
+          ],
+          "entry_addr": 1179736,
+          "ports": [
+            "out",
+            "start"
+          ]
+        },
+        "bindings": [
+          [
+            "wide_axi->soc",
+            "self->hbm"
+          ],
+          [
+            "narrow_axi->wide_axi",
+            "wide_axi->input"
+          ],
+          [
+            "wide_axi->rom",
+            "rom->input"
+          ],
+          [
+            "narrow_axi->rom",
+            "rom->input"
+          ],
+          [
+            "cluster_0->narrow_soc",
+            "narrow_axi->input"
+          ],
+          [
+            "cluster_0->wide_soc",
+            "wide_axi->input"
+          ],
+          [
+            "narrow_axi->cluster_0",
+            "cluster_0->narrow_input"
+          ],
+          [
+            "loader->out",
+            "narrow_axi->input"
+          ],
+          [
+            "loader->start",
+            "cluster_0->fetchen"
+          ],
+          [
+            "loader->start",
+            "cluster_0->meip_0"
+          ],
+          [
+            "loader->start",
+            "cluster_0->meip_1"
+          ]
+        ],
+        "components": [
+          "rom",
+          "narrow_axi",
+          "wide_axi",
+          "cluster_0",
+          "loader"
+        ],
+        "ports": [
+          "hbm"
+        ]
+      },
+      "bindings": [
+        [
+          "soc->hbm",
+          "self->hbm"
+        ]
+      ],
+      "components": [
+        "soc"
+      ],
+      "ports": [
+        "hbm",
+        "clock"
+      ]
+    },
+    "mem": {
+      "init": true,
+      "size": 2147483648,
+      "stim_file": null,
+      "power_trigger": false,
+      "width_bits": 2,
+      "align": 0,
+      "latency": 0,
+      "memcheck_id": -1,
+      "memcheck_base": 0,
+      "memcheck_virtual_base": 0,
+      "memcheck_expansion_factor": 5,
+      "vp_component": "gen_memory_memory_cpp_105025602",
+      "ports": [
+        "clock",
+        "input"
+      ]
+    },
+    "gvsoc": {
+      "proxy": {
+        "enabled": false,
+        "port": 42951
+      },
+      "events": {
+        "enabled": false,
+        "include_raw": [],
+        "include_regex": [],
+        "exclude_regex": [],
+        "format": "vcd",
+        "active": false,
+        "all": true,
+        "gtkw": false,
+        "gen_gtkw": false,
+        "files": [],
+        "traces": {},
+        "tags": [
+          "overview"
+        ],
+        "use-external-dumper": null
+      },
+      "include_dirs": [
+        "/home/omkar/Desktop/UNIBO/gvsoc/install/models"
+      ],
+      "runner_module": "gv.gvsoc",
+      "cycles_to_seconds": "int(max(cycles * nb_cores / 5000000, 600))",
+      "werror": true,
+      "verbose": true,
+      "debug-mode": false,
+      "profile-mode": false,
+      "launchers": {
+        "default": "gvsoc_launcher",
+        "debug": "gvsoc_launcher_debug"
+      },
+      "traces": {
+        "level": "debug",
+        "format": "long",
+        "float_hex": false,
+        "enabled": false,
+        "include_regex": [],
+        "exclude_regex": []
+      },
+      "systemc": false,
+      "wunconnected-padfun": false,
+      "memcheck": false,
+      "power": false
+    },
+    "bindings": [
+      [
+        "clock->out",
+        "chip->clock"
+      ],
+      [
+        "clock->out",
+        "mem->clock"
+      ],
+      [
+        "chip->hbm",
+        "mem->input"
+      ]
+    ],
+    "components": [
+      "clock",
+      "chip",
+      "mem"
+    ]
+  }
+}
