@@ -73,7 +73,7 @@ class ClusterArch(Tree):
     class Tcdm(Tree):
         def __init__(self, parent, name, base, nb_masters):
             super().__init__(parent, name)
-            self.area = Area( self, 'tcdm', base + 0x0000_0000, 0x0002_0000, 'TCDM range')
+            self.area = Area( self, 'tcdm', base + 0x0000_0000, 0x0004_0000, 'TCDM range')
             self.nb_banks_per_superbank = 8
             self.bank_width = 8
             self.nb_superbanks = 4
@@ -168,7 +168,7 @@ class SnitchCluster(gvsoc.systree.Component):
 
             config = SpatzConfig(isa=arch.isa, fetch_enable=arch.auto_fetch,
                 boot_addr=arch.boot_addr, hart_id=arch.first_hartid + core_id,
-                htif=True, nb_lanes=arch.spatz_nb_lanes, lane_width=8)
+                htif=True, nb_lanes=arch.spatz_nb_lanes, lane_width=8, vlen=1024)
             cores.append(Spatz(self, f'pe{core_id}', config=config))
             cores_ico.append(router.Router(self, f'pe{core_id}_ico', bandwidth=arch.tcdm.bank_width))
 
