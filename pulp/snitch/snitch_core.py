@@ -271,6 +271,7 @@ class SnitchFast(cpu.iss.riscv.RiscvCommon):
             self.add_c_flags([f'-DCONFIG_GVSOC_ISS_SEQUENCER=1'])
             self.add_sources([
                 "cpu/iss/src/spatz/fpu_sequencer.cpp",
+                "cpu/iss/src/dimc.cpp",
             ])
         else:
             if sequencer:
