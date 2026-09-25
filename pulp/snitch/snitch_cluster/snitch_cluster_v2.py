@@ -18,6 +18,7 @@
 # Authors: Germain Haugou (germain.haugou@gmail.com)
 #
 
+import os
 import gvsoc.runner
 from pulp.cpu.iss.spatz import Spatz
 from pulp.cpu.iss.spatz_config import SpatzConfig
