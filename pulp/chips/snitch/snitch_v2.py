@@ -14,6 +14,7 @@
 # limitations under the License.
 #
 
+import os
 import gvsoc.runner
 import gvsoc.systree
 from vp.clock_domain import Clock_domain
