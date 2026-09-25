@@ -205,6 +205,9 @@ def attach(component: Component, vlen: int, nb_lanes: int, use_spatz: bool=False
             component.add_sources([
                 "cpu/iss_v2/src/cores/spatz/spatz_vlsu.cpp",
             ])
+        component.add_sources([
+            "cpu/iss_v2/src/cores/spatz/dimc.cpp",
+        ])
         component.add_c_flags([
             "-DCONFIG_GVSOC_ISS_USE_SPATZ",
         ])
