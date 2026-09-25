@@ -173,6 +173,8 @@
 
         "dma": {
             "version": 7,
+            "kind": "mchan",
+            "nb_tcdm_banks": 2,
             "mapping": {
                 "base": "0x10201800",
                 "size": "0x00000400",

@@ -25,6 +25,7 @@ from utils.loader.loader_v2 import ElfLoader
 from ips.gap.cpu.ri5ky import Ri5ky
 from memory.memory_v3 import Memory
 from interco.router_v2 import Router
+from pulp.ri5ky.ri5ky_async_mem import Ri5kyAsyncMem
 
 
 class Ri5kyTestbench(Component):
@@ -34,6 +35,11 @@ class Ri5kyTestbench(Component):
     runs on both simulators.
     """
 
+    # Core model of the testbench. Variant boards (e.g. the DBT-driven
+    # one) subclass and override it; the class must accept the Ri5ky
+    # constructor signature.
+    core_class: type[Component] = Ri5ky
+
     def __init__(self, parent: Component, name: str, config: Ri5kyTestbenchConfig):
         super().__init__(parent, name, config=config)
 
@@ -42,16 +48,25 @@ class Ri5kyTestbench(Component):
             cast=str
         )
 
-        mem      = Memory    ( self, 'mem'     , config=config.mem      )
-        slow_mem = Memory    ( self, 'slow_mem', config=config.slow_mem )
-        mmio     = Ri5kyMmio ( self, 'mmio'                              )
-        ico      = Router    ( self, 'ico'     , config=config.router   )
-        core     = Ri5ky     ( self, 'core'    , config=config.core     )
-        loader   = ElfLoader ( self, 'loader'                            )
+        mem       = Memory       ( self, 'mem'      , config=config.mem       )
+        # Synchronous slow memory (memory_v3): completes with IO_REQ_DONE and
+        # an annotated latency. Exercises the sync response path of the LSU.
+        slow_mem  = Memory       ( self, 'slow_mem' , config=config.slow_mem  )
+        # Asynchronous slow memory: answers IO_REQ_GRANTED and replies
+        # `latency` cycles later, mirroring RTL slow_mem.sv's rvalid-after-L.
+        # Engages p.elw's clock-gated park/wake path (a real event unit is
+        # always an asynchronous responder) and the registered misaligned
+        # second-beat handoff.
+        async_mem = Ri5kyAsyncMem ( self, 'async_mem', config=config.async_mem )
+        mmio      = Ri5kyMmio    ( self, 'mmio'                                )
+        ico       = Router       ( self, 'ico'      , config=config.router    )
+        core      = type(self).core_class ( self, 'core', config=config.core  )
+        loader    = ElfLoader    ( self, 'loader'                             )
 
-        ico.o_MAP        ( mem.i_INPUT()      , mapping=config.mem_mapping      )
-        ico.o_MAP        ( slow_mem.i_INPUT() , mapping=config.slow_mem_mapping )
-        ico.o_MAP        ( mmio.i_INPUT()     , mapping=config.mmio_mapping     )
+        ico.o_MAP        ( mem.i_INPUT()       , mapping=config.mem_mapping       )
+        ico.o_MAP        ( slow_mem.i_INPUT()  , mapping=config.slow_mem_mapping  )
+        ico.o_MAP        ( async_mem.i_INPUT() , mapping=config.async_mem_mapping )
+        ico.o_MAP        ( mmio.i_INPUT()      , mapping=config.mmio_mapping      )
 
         # Three independent masters, one router input port each.
         loader.o_OUT     ( ico.i_INPUT(0)   )
@@ -76,13 +91,16 @@ class Ri5kyTestbench(Component):
 
 class Ri5kyTestbenchBoard(Component):
 
+    # See Ri5kyTestbench.core_class.
+    soc_class: type[Component] = Ri5kyTestbench
+
     def __init__(self, parent: Component, name: str, config: Ri5kyTestbenchBoardConfig):
 
         super().__init__(parent, name, config=config)
 
         self.set_target_name('ri5ky.testbench')
 
-        clock = Clock_domain  ( self, 'clock', frequency=config.frequency )
-        soc   = Ri5kyTestbench( self, 'soc',   config.soc                 )
+        clock = Clock_domain ( self, 'clock', frequency=config.frequency )
+        soc   = type(self).soc_class ( self, 'soc', config.soc           )
 
         clock.o_CLOCK ( soc.i_CLOCK() )

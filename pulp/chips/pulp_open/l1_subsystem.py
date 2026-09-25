@@ -19,6 +19,7 @@ from memory.memory import Memory
 from interco.router import Router
 from interco.converter import Converter
 from pulp.cluster.l1_interleaver import L1_interleaver
+from pulp.snitch.snitch_cluster.dma_interleaver import DmaInterleaver
 import math
 
 
@@ -30,10 +31,13 @@ class L1_subsystem(st.Component):
     ----------
     cluster: Cluster
         The cluster class.
+    dma_model: str
+        Which DMA the cluster has. The wide DMA port and its interleaver only exist for iDMA;
+        mchan drives its four single word ports through the L1 interleaver instead.
 
     """
 
-    def __init__(self, parent, name, cluster, cluster_conf):
+    def __init__(self, parent, name, cluster, cluster_conf, dma_model='mchan'):
         super(L1_subsystem, self).__init__(parent, name)
 
         #
@@ -66,6 +70,15 @@ class L1_subsystem(st.Component):
 
         # L1 interleaver
         interleaver = L1_interleaver(self, 'interleaver', nb_slaves=nb_l1_banks, nb_masters=l1_interleaver_nb_masters, interleaving_bits=2)
+
+        # DMA interleaver, for a DMA whose accesses are wider than the interleaving granule. It
+        # splits one access into one request per bank, exactly as the L1 interleaver maps a single
+        # one, and reports the latency of the slowest bank. Only iDMA needs it: mchan drives four
+        # single word ports through the L1 interleaver instead, so it is not instantiated at all
+        # in that case.
+        if dma_model == 'idma':
+            dma_interleaver = DmaInterleaver(self, 'dma_interleaver', nb_master_ports=1,
+                nb_banks=nb_l1_banks, bank_width=1 << 2)
 
         # EXT2LOC
         ext2loc = Converter(self, 'ext2loc', output_width=4, output_align=4)
@@ -127,6 +140,12 @@ class L1_subsystem(st.Component):
 
         for i in range(0, 4):
             self.bind(self, 'dma_in_%d' % i, interleaver, 'in_%d' % (nb_pe + i))
+
+        # Wide DMA port, straight to the banks through the DMA interleaver
+        if dma_model == 'idma':
+            self.bind(self, 'dma_wide_in', dma_interleaver, 'input')
+            for i in range(0, nb_l1_banks):
+                self.bind(dma_interleaver, 'out_%d' % i, l1_banks[i], 'input')
 
         # EXT2LOC
         self.bind(self, 'ext2loc', ext2loc, 'input')
